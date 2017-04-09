@@ -29,7 +29,7 @@ class Msg(object):
         self.fromUserName = fromUserName
         self.MsgType = MsgType
 
-    def reply_text(self,toUserName,fromUserName,text):
+    def reply_text(self,text):
 
         template = '''<xml>
             <ToUserName><![CDATA[%s]]></ToUserName>
