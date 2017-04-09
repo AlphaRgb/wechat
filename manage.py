@@ -150,5 +150,5 @@ def wechat():
 if __name__ == '__main__':
     access_token = get_access_token()
     delete_menus(access_token)
-    create_menus(access_token)
+    # create_menus(access_token)
     app.run()
