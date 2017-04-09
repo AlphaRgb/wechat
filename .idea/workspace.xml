@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="66c2ad22-3772-46c6-b5ed-2bea0f98d793" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +33,8 @@
       <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="101" column="44" lean-forward="false" selection-start-line="101" selection-start-column="44" selection-end-line="101" selection-end-column="44" />
+            <state relative-caret-position="450">
+              <caret line="115" column="27" lean-forward="true" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
               <folding>
                 <element signature="e#39#50#0" expanded="true" />
               </folding>
@@ -120,6 +119,20 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wechat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.5.2 (/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="wechat" />
@@ -465,8 +478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="101" column="44" lean-forward="false" selection-start-line="101" selection-start-column="44" selection-end-line="101" selection-end-column="44" />
+        <state relative-caret-position="450">
+          <caret line="115" column="27" lean-forward="true" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
             <element signature="e#39#50#0" expanded="true" />
           </folding>

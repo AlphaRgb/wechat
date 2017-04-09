@@ -98,7 +98,7 @@ def wechat():
                 text = '欢迎关注公众号...'
                 response = make_response(msg.reply_text(text))
                 return response
-            elif content == 'click':
+            elif content == 'CLICK':
                 key_value = soup.find('EventKey').get_text()
                 response = make_response(msg.reply_text(key_value))
                 return response
