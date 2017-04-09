@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 #coding:utf-8
 
-import time
+import time,json
+import requests
 
 class NewsItem(object):
 
@@ -38,6 +39,12 @@ class Msg(object):
             <MsgType><![CDATA[text]]></MsgType>
             <Content><![CDATA[%s]]></Content>
         </xml>'''
+
+        key = '64fe923bce7b4eb8b0d169386fa745fe'
+        api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
+        info = text.encode('UTF-8')
+        url = api + info
+        text = json.loads(requests.get(url).content)['text']
 
         return template % (self.fromUserName,self.toUserName,int(time.time()),text)
 
