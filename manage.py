@@ -11,6 +11,42 @@ import re
 
 app = Flask(__name__)
 
+APPID = 'wxcdf195293151f105'
+APPSECRET = 'db2fead72717453b193333703d617011'
+
+def get_access_token(appid,appsecret):
+    url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}'.format(appid,appsecret)
+    resp = requests.get(url).text
+    return json.loads(resp).get('access_token')
+
+def create_menus(access_token):
+    url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=%s' % access_token
+    data = {
+        "button": [
+            {
+                "type": "click",
+                "name": "今日歌曲",
+                "key": "V1001_TODAY_MUSIC"
+            },
+            {
+                "name": "菜单",
+                "sub_button": [
+                    {
+                        "type": "view",
+                        "name": "搜索",
+                        "url": "http://www.soso.com/"
+                    },
+                    {
+                        "type": "click",
+                        "name": "赞一下我们",
+                        "key": "V1001_GOOD"
+                    }
+                ]
+            }
+        ]
+    }
+    resp = requests.post(url,data=data)
+    return resp.text
 
 @app.route('/wechat', methods=['GET', 'POST'])
 def wechat():
@@ -132,4 +168,6 @@ def wechat():
 
 
 if __name__ == '__main__':
+    access_token = get_access_token()
+    create_menus(access_token)
     app.run()
