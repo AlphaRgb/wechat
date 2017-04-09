@@ -44,7 +44,7 @@ class Msg(object):
         api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
         info = text.encode('UTF-8')
         url = api + info
-        text = json.loads(requests.get(url).content)['text']
+        text = json.loads(requests.get(url).text)['text']
 
         return template % (self.fromUserName,self.toUserName,int(time.time()),text)
 
@@ -61,7 +61,7 @@ class Msg(object):
             <HQMusicUrl><![CDATA[%s]]></HQMusicUrl>
             </Music>
         </xml>'''
-        return template % (self.toUserName, self.fromUserName, int(time.time()), \
+        return template % (self.fromUserName, self.toUserName, int(time.time()), \
                            title, desc, music_url, hq_url)
 
     def reply_image(self,media_id):
@@ -74,7 +74,7 @@ class Msg(object):
             <MediaId><![CDATA[%s]]></MediaId>
             </Image>    
         </xml>'''
-        return template % (self.toUserName, self.fromUserName, int(time.time()), media_id)
+        return template % (self.fromUserName, self.toUserName, int(time.time()), media_id)
 
     def resp_news(self,news_items):
         template = '''<xml>
@@ -87,5 +87,5 @@ class Msg(object):
               %s
             </Articles>
         </xml>'''
-        return template % (self.toUserName, self.fromUserName, int(time.time()), len(news_items), (''.join(news_items)))
+        return template % (self.fromUserName, self.toUserName, int(time.time()), len(news_items), (''.join(news_items)))
 
