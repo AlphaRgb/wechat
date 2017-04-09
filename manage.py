@@ -29,6 +29,11 @@ def get_access_token(appid,appsecret):
     resp = requests.get(url).text
     return json.loads(resp).get('access_token')
 
+def delete_menus(access_token):
+    url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=%s' % access_token
+    resp = requests.get(url)
+    return json.loads(resp.text).get('errmsg')
+
 def create_menus(access_token):
     url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=%s' % access_token
     data = {
@@ -144,5 +149,9 @@ def wechat():
 
 if __name__ == '__main__':
     access_token = get_access_token()
-    create_menus(access_token)
+    isOk = delete_menus(access_token)
+    if isOk == 'ok':
+        create_menus(access_token)
+    else:
+        print('旧的菜单还没有删除..')
     app.run()
