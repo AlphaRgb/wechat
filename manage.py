@@ -108,8 +108,7 @@ def wechat():
             msg = Msg(toUserName,fromUserName,msgType)
             key = '64fe923bce7b4eb8b0d169386fa745fe'
             api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
-            info = content.encode('UTF-8')
-            url = api + info
+            url = api + content
             content = json.loads(requests.get(url).text)['text']
             response = make_response(msg.reply_text(content))
 
