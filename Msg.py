@@ -39,13 +39,6 @@ class Msg(object):
             <MsgType><![CDATA[text]]></MsgType>
             <Content><![CDATA[%s]]></Content>
         </xml>'''
-
-        key = '64fe923bce7b4eb8b0d169386fa745fe'
-        api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
-        info = text.encode('UTF-8')
-        url = api + info
-        text = json.loads(requests.get(url).text)['text']
-
         return template % (self.fromUserName,self.toUserName,int(time.time()),text)
 
     def reply_sound(self,title,desc,music_url,hq_url):

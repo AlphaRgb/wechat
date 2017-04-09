@@ -103,9 +103,16 @@ def wechat():
         #         return None
 
         if msgType == 'text':
+
             content = soup.find('Content').get_text()
             msg = Msg(toUserName,fromUserName,msgType)
+            key = '64fe923bce7b4eb8b0d169386fa745fe'
+            api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
+            info = content.encode('UTF-8')
+            url = api + info
+            content = json.loads(requests.get(url).text)['text']
             response = make_response(msg.reply_text(content))
+
             return response
 
             # if content == 'FM' or content == 'fm' or content == u'电台':
