@@ -30,12 +30,12 @@ def get_access_token(appid,appsecret):
     return json.loads(resp).get('access_token')
 
 def delete_menus(access_token):
-    url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=%s' % access_token
+    url = 'https://api.weixin.qq.com/cgi-bin/menu/delete?access_token={}'.format(access_token)
     resp = requests.get(url)
-    return resp.text
+    return json.loads(resp.text)
 
 def create_menus(access_token):
-    url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=%s' % access_token
+    url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token={}'.format(access_token)
     data = {
         "button": [
             {
