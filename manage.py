@@ -36,7 +36,7 @@ def create_menus(access_token):
             {
                 "type": "click",
                 "name": "今日歌曲",
-                "key": "V1001_TODAY_MUSIC"
+                "key": "TODAY_MUSIC"
             },
             {
                 "name": "菜单",
@@ -95,12 +95,14 @@ def wechat():
         if msgType == 'event':
             content = soup.find('Event').text
             if content == 'subscribe':
-                text = 'hello!'
+                text = '欢迎关注公众号...'
                 response = make_response(msg.reply_text(text))
                 return response
-            elif content == 'unsubscribe':
-                print(1)
-                return None
+            elif content == 'click':
+                key_value = soup.find('EventKey').get_text()
+                response = make_response(msg.reply_text(key_value))
+                return response
+
 
         if msgType == 'text':
 
