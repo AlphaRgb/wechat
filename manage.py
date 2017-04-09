@@ -76,6 +76,8 @@ def wechat():
         s.sort()
         s = ''.join(s).encode('utf-8')
         if (hashlib.sha1(s).hexdigest() == signature):
+            access_token = get_access_token()
+            delete_menus(access_token)
             return make_response(echostr)
         else:
             print(' 该请求不是来自于微信...')
@@ -148,7 +150,5 @@ def wechat():
 
 
 if __name__ == '__main__':
-    access_token = get_access_token()
-    delete_menus(access_token)
     # create_menus(access_token)
     app.run()
