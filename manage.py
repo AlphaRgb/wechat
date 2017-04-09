@@ -90,22 +90,21 @@ def wechat():
         toUserName = soup.find('ToUserName').text
         fromUserName = soup.find('FromUserName').text
         msgType = soup.find('MsgType').text
+        msg = Msg(toUserName, fromUserName, msgType)
 
-        # if msgType == 'event':
-        #     content = soup.find('Event').text
-        #     if content == 'subscribe':
-        #         text = u'hello!'
-        #         response = make_response(reply_text % (fromUserName, toUserName, str(int(time.time())), msgType, text))
-        #         response.content_type = 'application/xml'
-        #         return response
-        #     elif content == 'unsubscribe':
-        #         print(1)
-        #         return None
+        if msgType == 'event':
+            content = soup.find('Event').text
+            if content == 'subscribe':
+                text = 'hello!'
+                response = make_response(msg.reply_text(text))
+                return response
+            elif content == 'unsubscribe':
+                print(1)
+                return None
 
         if msgType == 'text':
 
             content = soup.find('Content').get_text()
-            msg = Msg(toUserName,fromUserName,msgType)
             key = '64fe923bce7b4eb8b0d169386fa745fe'
             api = 'http://www.tuling123.com/openapi/api?key=' + key + '&info='
             url = api + content
