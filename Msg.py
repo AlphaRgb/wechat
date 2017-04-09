@@ -37,7 +37,6 @@ class Msg(object):
             <CreateTime>%s</CreateTime>
             <MsgType><![CDATA[text]]></MsgType>
             <Content><![CDATA[%s]]></Content>
-            <FuncFlag>%s</FuncFlag>
         </xml>'''
 
         return template % (self.toUserName,self.fromUserName,int(time.time()),text)
@@ -80,7 +79,6 @@ class Msg(object):
             <Articles>
               %s
             </Articles>
-            <FuncFlag>%s</FuncFlag>
         </xml>'''
         return template % (self.toUserName, self.fromUserName, int(time.time()), len(news_items), (''.join(news_items)))
 
