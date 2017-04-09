@@ -39,7 +39,7 @@ class Msg(object):
             <Content><![CDATA[%s]]></Content>
         </xml>'''
 
-        return template % (self.toUserName,self.fromUserName,int(time.time()),text)
+        return template % (self.fromUserName,self.toUserName,int(time.time()),text)
 
     def reply_sound(self,title,desc,music_url,hq_url):
         template = '''<xml>
