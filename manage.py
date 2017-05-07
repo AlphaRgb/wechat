@@ -63,6 +63,10 @@ def create_menus(access_token):
     resp = requests.post(url,data=data)
     return resp.text
 
+@app.route('/test')
+def test():
+    return 'hello world'
+
 @app.route('/wechat', methods=['GET', 'POST'])
 def wechat():
     if request.method == 'GET':
